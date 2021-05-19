@@ -22,7 +22,8 @@ public class Simulation {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    	// Create an eventlist
+
+    // Create an eventlist
 	CEventList l = new CEventList();
 	// A queue for the machine
 	Queue q = new Queue();

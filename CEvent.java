@@ -42,6 +42,8 @@ public class CEvent
 	*/
 	public double getExecutionTime()
 	{
+
+
 		return executionTime;
 	}
 }

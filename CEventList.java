@@ -26,7 +26,7 @@ public class CEventList implements CProcess
 	{
 		currentTime = 0;
 		stopFlag = false;
-		events = new ArrayList<>();
+		this.events = new ArrayList<>();
 	}
 	
 	/**
@@ -39,8 +39,7 @@ public class CEventList implements CProcess
 	{
 		boolean success=false;
 		// First create a new event using the parameters
-		CEvent evnt;
-                evnt = new CEvent(target,type,tme);
+		CEvent evnt = new CEvent(target,type,tme);
 		// Now it is examened where the event has to be inserted in the list
 		for(int i=0;i<events.size();i++)
 		{
@@ -86,7 +85,7 @@ public class CEventList implements CProcess
 	*/
 	public void start(double mx)
 	{
-		add(this,-1,mx);
+		this.add(this,-1,mx);
 		// stop criterion
 		while((events.size()>0)&&(!stopFlag))
 		{

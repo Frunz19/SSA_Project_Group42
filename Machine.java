@@ -39,13 +39,13 @@ public class Machine implements CProcess,ProductAcceptor
 	*/
 	public Machine(Queue q, ProductAcceptor s, CEventList e, String n)
 	{
-		status='i';
-		queue=q;
-		sink=s;
-		eventlist=e;
-		name=n;
-		meanProcTime=30;
-		queue.askProduct(this);
+		this.status='i';
+		this.queue=q;
+		this.sink=s;
+		this.eventlist=e;
+		this.name=n;
+		this.meanProcTime=30;
+		this.queue.askProduct(this);
 	}
 
 	/**
@@ -141,27 +141,27 @@ public class Machine implements CProcess,ProductAcceptor
 	private void startProduction()
 	{
 		// generate duration
-		if(meanProcTime>0)
+		if(this.meanProcTime>0)
 		{
-			double duration = drawRandomExponential(meanProcTime);
+			double duration = this.drawRandomExponential(this.meanProcTime);
 			// Create a new event in the eventlist
-			double tme = eventlist.getTime();
-			eventlist.add(this,0,tme+duration); //target,type,time
+			double tme = this.eventlist.getTime();
+			this.eventlist.add(this,0,tme+duration); //target,type,time
 			// set status to busy
-			status='b';
+			this.status='b';
 		}
 		else
 		{
-			if(processingTimes.length>procCnt)
+			if(this.processingTimes.length>this.procCnt)
 			{
-				eventlist.add(this,0,eventlist.getTime()+processingTimes[procCnt]); //target,type,time
+				this.eventlist.add(this,0,this.eventlist.getTime()+this.processingTimes[this.procCnt]); //target,type,time
 				// set status to busy
-				status='b';
-				procCnt++;
+				this.status='b';
+				this.procCnt++;
 			}
 			else
 			{
-				eventlist.stop();
+				this.eventlist.stop();
 			}
 		}
 	}

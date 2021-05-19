@@ -34,7 +34,7 @@ public class Sink implements ProductAcceptor
 		number = 0;
 	}
 	
-        @Override
+	@Override
 	public boolean giveProduct(Product p)
 	{
 		number++;
